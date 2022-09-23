@@ -26,5 +26,15 @@ namespace AspNetCoreWebApp.Models
         [DataType(DataType.ImageUrl)]
         [Display(Name = "Poster")]
         public string ImageUrl { get; set; }
+        
+        [Display(Name = "Image File")]
+        [MaxFileSize(1 * 1024 * 1024)]
+        [PermittedExtensions(new string[] { ".jpg", ".png", ".gif", ".jpeg"})]
+        [Notmapped]
+        
+        public virtual IFormFile ImageFile { get; set; }
+        
+        public string ImageStorageName { get; set; }
+        
     }
 }
